@@ -3,6 +3,8 @@ import numpy as np
 
 # ================ 1 Variable ================
 
+
+
 f1 = lambda x: 1/20*x**2*cos(x) - x # x = 7 , x= 6, (1/20*x**2*cos(x)-x)
 df = lambda x: 2*x
 xprev= -4

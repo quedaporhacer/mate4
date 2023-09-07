@@ -29,7 +29,7 @@ fig.add_trace(go.Scatter(x=[xprev], y=[f1(xprev)]))
 
 if(df(xprev) != 0):
     xnew = next(xprev)
-    error = abs(f1(xnew)) -f1(xprev)
+    error = abs(f1(xnew)) -f1(xprev)  # pag5 GradientDescent.pdf
     print(f"x_prev = {xprev}, x_new = {xnew}, error = {error}")
     fig.add_trace(go.Scatter(x=[xnew], y=[f1(xnew)]))
 

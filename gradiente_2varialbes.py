@@ -10,13 +10,17 @@ import numpy as np
 # -> por ejemplo cuando la función es Par 
 # en este caso me da valores cercanos pero me muevo mucho
 
-f1 = lambda x, y: x**2 - y**2 
-dfx = lambda x: 2*x
-dfy = lambda y: -2*y
 
-xprev = -4
-yprev = 0
-paso = 0.2
+# Ejercicio 17 
+
+
+f1 = lambda x, y: x**2 + y**2 + 1/2*y - 2 
+dfx = lambda x: 2*x
+dfy = lambda y: 2*y + 1/2
+
+xprev = 10
+yprev = 2
+paso = 0.4
 tolerancia = 0.001
 iteraciones = 1
 maxiteraciones = 20
@@ -41,8 +45,8 @@ if dfx(xprev) != 0 or dfy(yprev) != 0:
 
     error = np.sqrt(xnew**2 + ynew**2)  # ¿Qué pasa cuando el vector se acerca al punto silla? -> tiende a 0
     # definimos otra forma de error 
-    # print(f"x_prev = {xprev}, x_new = {xnew}, error = {error}")
-    fig.add_trace(go.Scatter3d(x=[xnew], y=[ynew], z=[f1(xnew, ynew)],mode='markers',marker=dict(size=20), visible='legendonly'))
+    print(f"x_prev = {xprev}, x_new = {xnew}, ,y_prev = {yprev}, y_new = {ynew}, error = {error}")
+    fig.add_trace(go.Scatter3d(x=[xnew], y=[ynew], z=[f1(xnew, ynew)],mode='markers',marker=dict(size=10), visible='legendonly'))
 
     while error > tolerancia and iteraciones < maxiteraciones:
         iteraciones = iteraciones + 1
@@ -51,7 +55,8 @@ if dfx(xprev) != 0 or dfy(yprev) != 0:
         yprev = ynew
         ynew = ynext(yprev)
         error = abs(f1(xnew, ynew) - f1(xprev, yprev))
-        fig.add_trace(go.Scatter3d(x=[xnew], y=[ynew], z=[f1(xnew, ynew)],mode='markers',marker=dict(size=20), visible='legendonly'))
+        print(f"x_prev = {xprev}, x_new = {xnew}, ,y_prev = {yprev}, y_new = {ynew}, error = {error}")
+        fig.add_trace(go.Scatter3d(x=[xnew], y=[ynew], z=[f1(xnew, ynew)],mode='markers',marker=dict(size=10), visible='legendonly'))
 
 # Plot
 fig.show()
