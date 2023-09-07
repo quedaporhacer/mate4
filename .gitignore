@@ -1,0 +1,5 @@
+# Ignorar el directorio virtual de Python
+mate4/
+
+# Ignorar archivos compilados de Python
+*.pyc
